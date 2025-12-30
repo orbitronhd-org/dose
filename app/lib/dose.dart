@@ -7,8 +7,12 @@ class Dose extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Dose Test",
-        ),
+        title: Text("Dose Test"),
+      ),
+      body: Column(
+        children: [
+          Text('Hi'),
+        ],
       ),
     );
   }
