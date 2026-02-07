@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:app/home/home.dart';
+import 'package:app/analytics/analytics.dart';
+import 'package:app/history/history.dart';
+import 'package:app/profile/profile.dart';
 
 class Dose extends StatefulWidget {
   const Dose({super.key});
@@ -10,25 +14,20 @@ class Dose extends StatefulWidget {
 class _DoseState extends State<Dose> {
   int _selectedIndex = 0;
 
+  final List<Widget> _pages = const [
+    HomePage(),
+    AnalyticsPage(),
+    HistoryPage(),
+    ProfilePage(),
+  ];
+
   @override
   Widget build(BuildContext context) {
-    final List<Widget> pages = [
-      const Center(child: Text('Home Content')), // Index 0
-      const Center(child: Text('Analytics Content')), // Index 1
-      const Center(child: Text('History Content')), // Index 2
-      const Center(child: Text('Profile Content')), // Index 3
-    ];
-
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 80,
-        centerTitle: false,
         title: const Text(
           "Dose",
-          style: TextStyle(
-            fontSize: 34,
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
       bottomNavigationBar: NavigationBar(
@@ -61,7 +60,7 @@ class _DoseState extends State<Dose> {
           ),
         ],
       ),
-      body: pages[_selectedIndex],
+      body: _pages[_selectedIndex],
     );
   }
 }
